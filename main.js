@@ -106,27 +106,27 @@ document.onkeydown = function (event) {
 btn=(direction)=>{
     switch (direction) {
         case 'left':
-            if (directionx !== 3) {
-                directionx = -3;
+            if (directionx !== 1) {
+                directionx = -1;
                 directiony = 0;
             }
             break;
         case 'up':
-            if (directiony !== 3) {
+            if (directiony !== 1) {
                 directionx = 0;
-                directiony = -3;
+                directiony = -1;
             }
             break;
         case 'right':
-            if (directionx !== -3) {
-                directionx = 3;
+            if (directionx !== -1) {
+                directionx = 1;
                 directiony = 0;
             }
             break;
         case 'down':
-            if (directiony !== -3) {
+            if (directiony !== -1) {
                 directionx = 0;
-                directiony = 3;
+                directiony = 1;
             }
             break;
     }
