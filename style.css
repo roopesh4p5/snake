@@ -2,20 +2,66 @@ body{
     height: 100vh;
     width: 100vw;
     margin: 0;
-    background-image: linear-gradient(rgb(105, 80, 80),rgb(66, 40, 40));
+    background-image: url(./img.jpg);
     background-size: cover;
 }
 
 
 
 .game{
-    display: flex;
-    padding-top: 100px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    justify-content: end; 
+    padding: 40px;
+  
 }
 canvas{
-    border: 2px solid black;
-    background-color: rgba(80, 255, 80, 0.562);
+    border: 5px solid rgb(83, 10, 10);
+    background-color: rgba(80, 255, 80, 0.925);
 }
+
+button{
+   visibility: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+   
+    .game {
+      padding: 5px;
+      padding-top: 30px;
+      margin: 0;
+    }
+    .buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    button{
+        visibility: visible;
+        border: 2px solid greenyellow;
+        background-color: transparent;
+        font-size: 40px;
+        color: white;
+        background-color: red;
+        border-radius: 50%;
+    }
+    #b1{
+        position: relative;
+        top:40px;
+        left: 30px;
+    }
+    #b2{
+        position: relative;
+        top:0;
+        left: 28px;
+    }
+    #b3{
+        position: relative;
+        top:80px;
+        left:-28px;
+    }
+    #b4{
+        position: relative;
+        top:40px;
+        left: -30px;
+    }
+  }
