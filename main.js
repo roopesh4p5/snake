@@ -31,7 +31,7 @@ let c = canvas.getContext('2d');
 let gameEnd = false;
 
 var snakesegment = [];
-var snakeLength = 3;
+var snakeLength = 13;
 let score =0;
 let snakex = 10;
 let snakey = 10;
@@ -168,7 +168,7 @@ collision = () => {
             snakex + 10 > dots[i].x &&
             snakey < dots[i].y + 10 &&
             snakey + 10 > dots[i].y) {
-            snakeLength += 3;
+            snakeLength += 9;
             points++;
             dots.splice(i, 1);
             return points;
