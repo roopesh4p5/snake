@@ -1,8 +1,32 @@
+// let w=window.innerWidth;
+// let h=window.innerHeight
+// let canvas = document.getElementById('snake');
+// canvas.width = w-1000;
+// canvas.height = h-500;
 
+
+function setCanvasSize() {
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    
+    if (w <= 882) {
+        canvas.width = 0.95 * w;
+        canvas.height = 0.7 * h;
+    } else {
+        canvas.width = 800;
+        canvas.height = 400;
+    }
+}
 
 let canvas = document.getElementById('snake');
-canvas.width = 800;
-canvas.height = 600;
+  // Call the function initially
+  setCanvasSize();
+
+  // Call the function whenever the window is resized
+  window.addEventListener('resize', setCanvasSize);
+
+
+
 let c = canvas.getContext('2d');
 let gameEnd = false;
 
@@ -77,7 +101,38 @@ document.onkeydown = function (event) {
             }
             break;
     }
+   
 };
+btn=(direction)=>{
+    switch (direction) {
+        case 'left':
+            if (directionx !== 3) {
+                directionx = -3;
+                directiony = 0;
+            }
+            break;
+        case 'up':
+            if (directiony !== 3) {
+                directionx = 0;
+                directiony = -3;
+            }
+            break;
+        case 'right':
+            if (directionx !== -3) {
+                directionx = 3;
+                directiony = 0;
+            }
+            break;
+        case 'down':
+            if (directiony !== -3) {
+                directionx = 0;
+                directiony = 3;
+            }
+            break;
+    }
+}
+
+
 
 
 spawnDots = () => {
@@ -85,12 +140,12 @@ spawnDots = () => {
         var dotx = (Math.random() * canvas.width);
         var doty = (Math.random() * canvas.height);
         dots.push({ x: dotx, y: doty });
-        console.log(dots);
+        // console.log(dots);
     }
     for (let i = 0; i < dots.length; i++) {
         c.fillStyle = 'red';
         c.fillRect(dots[i].x, dots[i].y, 15, 15);
-        console.log(c);
+        // console.log(c);
     }
 }
 
@@ -98,10 +153,9 @@ spawnDots = () => {
 gmaeover = (points) => {
     // alert("GAMEOVER")
     setTimeout(function () {
-        
-        alert("GAMEOVER!");
-        alert("Your Score is : "+points);
-        
+        if (alert("GAME OVER!\nYour Score is: " + points)) {
+            location.reload();
+          }
     }, 500);
     gameEnd=TRUE;
 }
